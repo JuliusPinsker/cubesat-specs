@@ -1,17 +1,51 @@
-"""Dataclass models for CubeSat form factors, deployers, and launch providers."""
+"""Dataclass models for satellite form factors, deployers, and launch providers."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 
 @dataclass(frozen=True)
-class CubeSatFormFactor:
-    """Standard CubeSat or PocketQube form factor specification.
+class CenterOfGravityLimits:
+    """Acceptable centre-of-gravity offset from the geometric centre.
 
-    Dimensions follow the respective design standards:
-    - CubeSat:    Cal Poly CubeSat Design Specification (CDS) Rev 14.1
-    - PocketQube: PocketQube Standard Issue 1
+    Values are expressed as *±cm* on each axis.
+
+    - CubeSat: per-form-factor limits from CDS Rev 14.1 Table 2.
+    - PocketQube: ±1 cm on all axes (PQ-Mass-04).
+    - ``None`` means no specified limit for that axis.
+    """
+
+    x_pm_cm: Optional[float] = None
+    """Max CG offset from geometric centre on X-axis [±cm]."""
+    y_pm_cm: Optional[float] = None
+    """Max CG offset from geometric centre on Y-axis [±cm]."""
+    z_pm_cm: Optional[float] = None
+    """Max CG offset from geometric centre on Z-axis [±cm]."""
+
+    def within(self, x_cm: float, y_cm: float, z_cm: float) -> bool:
+        """Return True if the given CG offset is within all limits."""
+        if self.x_pm_cm is not None and abs(x_cm) > self.x_pm_cm:
+            return False
+        if self.y_pm_cm is not None and abs(y_cm) > self.y_pm_cm:
+            return False
+        if self.z_pm_cm is not None and abs(z_cm) > self.z_pm_cm:
+            return False
+        return True
+
+
+@dataclass(frozen=True)
+class FormFactor:
+    """Standard satellite form factor specification.
+
+    Covers both CubeSat (Cal Poly CDS Rev 14.1) and PocketQube
+    (PocketQube Standard Issue 1) with a unified interface.
+
+    .. versionadded:: 0.2.0
+       Renamed from ``CubeSatFormFactor``.
+    .. versionchanged:: 0.2.0
+       ``min_freq_hz`` removed — the CDS does **not** specify a minimum
+       natural frequency (§3.1.1).  Added ``cg_limits``.
     """
 
     name: str
@@ -24,14 +58,10 @@ class CubeSatFormFactor:
     """Outer envelope depth [mm] (Y-axis)."""
     height_mm: float
     """Outer envelope height [mm] (Z-axis / deployment axis)."""
-    min_mass_kg: float
-    """Practical minimum populated spacecraft mass [kg]."""
-    typical_mass_kg: float
-    """Typical populated spacecraft mass [kg]."""
     max_mass_kg: float
-    """Maximum allowed mass per the standard [kg]."""
-    min_freq_hz: float
-    """Minimum required fundamental frequency [Hz] for launch qualification."""
+    """Maximum allowed mass per the standard [kg] (CDS Rev 14.1 Table 1)."""
+    cg_limits: CenterOfGravityLimits = CenterOfGravityLimits()
+    """Centre-of-gravity limits (CDS Table 2 for CubeSats, PQ-Mass-04 for PocketQubes)."""
 
     # ------------------------------------------------------------------
     # Computed properties
@@ -52,7 +82,7 @@ class CubeSatFormFactor:
         """Maximum allowable mass density [kg/L] (max_mass / volume)."""
         return self.max_mass_kg / self.volume_liters if self.volume_liters > 0 else 0.0
 
-    def is_same_cross_section(self, other: CubeSatFormFactor, tol_mm: float = 1.0) -> bool:
+    def is_same_cross_section(self, other: FormFactor, tol_mm: float = 1.0) -> bool:
         """True if both form factors share the same cross-sectional footprint (±tol_mm)."""
         return (
             abs(self.width_mm - other.width_mm) <= tol_mm
@@ -61,7 +91,7 @@ class CubeSatFormFactor:
 
     def __repr__(self) -> str:  # noqa: D105
         return (
-            f"CubeSatFormFactor({self.name!r}, "
+            f"FormFactor({self.name!r}, "
             f"{self.width_mm}×{self.depth_mm}×{self.height_mm} mm, "
             f"max {self.max_mass_kg} kg)"
         )
@@ -69,7 +99,13 @@ class CubeSatFormFactor:
 
 @dataclass(frozen=True)
 class DeployerSpec:
-    """Specification for a CubeSat deployment system (P-POD, NRCSD, ISIPOD, …)."""
+    """Specification for a CubeSat deployment system (P-POD, NRCSD, ISIPOD, …).
+
+    .. versionchanged:: 0.2.0
+       ``deployment_velocity_min_ms``, ``deployment_velocity_max_ms``, and
+       ``tip_off_rate_max_deg_s`` are now ``Optional[float]``; many commercial
+       deployer specs are proprietary and these fields may be ``None``.
+    """
 
     name: str
     """Deployer product name."""
@@ -79,14 +115,14 @@ class DeployerSpec:
     """Maximum total CubeSat units (U) the deployer can accommodate."""
     supported_form_factors: List[str]
     """Form factor keys accepted by this deployer, e.g. ['1U', '2U', '3U']."""
-    deployment_velocity_min_ms: float
-    """Minimum ejection velocity [m/s]."""
-    deployment_velocity_max_ms: float
-    """Maximum ejection velocity [m/s]."""
-    tip_off_rate_max_deg_s: float
-    """Maximum tip-off angular rate [deg/s] per axis at ejection."""
     max_payload_mass_kg: float
     """Maximum total payload mass that can be loaded into the deployer [kg]."""
+    deployment_velocity_min_ms: Optional[float] = None
+    """Minimum ejection velocity [m/s] (None = not publicly specified)."""
+    deployment_velocity_max_ms: Optional[float] = None
+    """Maximum ejection velocity [m/s] (None = not publicly specified)."""
+    tip_off_rate_max_deg_s: Optional[float] = None
+    """Maximum tip-off angular rate [deg/s] per axis (None = not publicly specified)."""
     mechanism: str = "spring"
     """Ejection mechanism type ('spring', 'pneumatic', 'electromagnetic')."""
     inclination_deg: Optional[float] = None

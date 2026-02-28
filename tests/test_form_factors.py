@@ -1,9 +1,15 @@
 """Tests for CubeSat and PocketQube form factor data."""
 import pytest
-from cubesat_specs import CUBESAT_FORM_FACTORS, POCKETQUBE_FORM_FACTORS, get_form_factor
+from cubesat_specs import (
+    CUBESAT_FORM_FACTORS,
+    POCKETQUBE_FORM_FACTORS,
+    FormFactor,
+    CenterOfGravityLimits,
+    get_form_factor,
+)
 
 
-# --- CubeSat ---
+# --- CubeSat registry ---
 
 def test_cubesat_keys_present():
     for key in ["0.5U", "1U", "1.5U", "2U", "3U", "3U+", "6U", "12U", "16U", "27U"]:
@@ -16,7 +22,6 @@ def test_1u_dimensions():
     assert ff.depth_mm == 100.0
     assert ff.height_mm == 113.5
     assert ff.max_mass_kg == 2.0
-    assert ff.min_freq_hz == 100.0
 
 
 def test_3u_mass_limit():
@@ -32,7 +37,6 @@ def test_6u_cross_section():
 
 def test_volume_1u():
     ff = CUBESAT_FORM_FACTORS["1U"]
-    # 100 × 100 × 113.5 mm = 1 135 000 mm³ = 1135 cm³ = 1.135 L
     assert abs(ff.volume_liters - 1.135) < 0.01
 
 
@@ -41,9 +45,49 @@ def test_mass_density_positive():
         assert ff.mass_density_max_kg_per_liter > 0
 
 
-def test_min_mass_lt_max_mass():
-    for key, ff in CUBESAT_FORM_FACTORS.items():
-        assert ff.min_mass_kg < ff.max_mass_kg, f"{key}: min_mass >= max_mass"
+# --- CG limits (CDS Rev 14.1 Table 2) ---
+
+def test_1u_cg_limits():
+    cg = CUBESAT_FORM_FACTORS["1U"].cg_limits
+    assert cg.x_pm_cm == 2.0
+    assert cg.y_pm_cm == 2.0
+    assert cg.z_pm_cm == 2.0
+
+
+def test_6u_cg_limits():
+    cg = CUBESAT_FORM_FACTORS["6U"].cg_limits
+    assert cg.x_pm_cm == 4.5
+    assert cg.y_pm_cm == 2.0
+    assert cg.z_pm_cm == 7.0
+
+
+def test_12u_cg_limits():
+    cg = CUBESAT_FORM_FACTORS["12U"].cg_limits
+    assert cg.x_pm_cm == 4.5
+    assert cg.y_pm_cm == 4.5
+    assert cg.z_pm_cm == 7.0
+
+
+def test_cg_within():
+    cg = CenterOfGravityLimits(x_pm_cm=2.0, y_pm_cm=2.0, z_pm_cm=2.0)
+    assert cg.within(1.0, 1.0, 1.0)
+    assert cg.within(2.0, 2.0, 2.0)
+    assert not cg.within(2.1, 0.0, 0.0)
+
+
+def test_cg_none_means_no_limit():
+    """None axes are always within limit."""
+    cg = CenterOfGravityLimits()
+    assert cg.within(999.0, 999.0, 999.0)
+
+
+def test_16u_27u_no_cds_cg():
+    """16U/27U are not in CDS — CG limits default to None."""
+    for key in ("16U", "27U"):
+        cg = CUBESAT_FORM_FACTORS[key].cg_limits
+        assert cg.x_pm_cm is None
+        assert cg.y_pm_cm is None
+        assert cg.z_pm_cm is None
 
 
 # --- PocketQube ---
@@ -59,6 +103,25 @@ def test_1p_dimensions():
     assert ff.depth_mm == 50.0
     assert ff.height_mm == 50.0
     assert ff.max_mass_kg == 0.250
+
+
+def test_pocketqube_cg_limits():
+    """PQ-Mass-04: CG shall not exceed 1 cm from geometric centre."""
+    for key in ("1p", "2p", "3p"):
+        cg = POCKETQUBE_FORM_FACTORS[key].cg_limits
+        assert cg.x_pm_cm == 1.0
+        assert cg.y_pm_cm == 1.0
+        assert cg.z_pm_cm == 1.0
+
+
+def test_pocketqube_2p_height():
+    """PocketQube Standard Table 1: 2P = 114 mm Z."""
+    assert POCKETQUBE_FORM_FACTORS["2p"].height_mm == 114.0
+
+
+def test_pocketqube_3p_height():
+    """PocketQube Standard Table 1: 3P = 178 mm Z."""
+    assert POCKETQUBE_FORM_FACTORS["3p"].height_mm == 178.0
 
 
 # --- get_form_factor() ---
@@ -84,3 +147,8 @@ def test_is_same_cross_section():
     ff_6u = CUBESAT_FORM_FACTORS["6U"]
     assert ff_1u.is_same_cross_section(ff_2u)
     assert not ff_1u.is_same_cross_section(ff_6u)
+
+
+def test_repr_uses_formfactor():
+    ff = CUBESAT_FORM_FACTORS["1U"]
+    assert repr(ff).startswith("FormFactor(")
