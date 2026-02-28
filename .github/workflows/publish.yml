@@ -16,6 +16,7 @@ jobs:
       - name: Build sdist + wheel
         run: |
           pip install build
+          rm -rf dist/
           python -m build
       - name: Upload dist artifacts
         uses: actions/upload-artifact@v4
