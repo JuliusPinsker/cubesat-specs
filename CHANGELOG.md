@@ -3,6 +3,11 @@
 All notable changes to `cubesat-specs` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.1.1] — 2026-02-28
+
+### Changed
+- Removed internal publishing instructions from README
+
 ## [0.1.0] — 2026-02-28
 
 ### Added

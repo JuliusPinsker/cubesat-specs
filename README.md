@@ -89,12 +89,6 @@ Each `DeployerSpec` carries: `supported_form_factors`, `deployment_velocity_min/
 - [ISIS ISIPOD Datasheet](https://www.isispace.nl)
 - [Exolaunch EXOpod Datasheet](https://exolaunch.com)
 
-## Publishing to PyPI
-
-1. Create a PyPI account and enable **Trusted Publishing** for `JuliusPinsker/cubesat-specs`.
-2. Push a semver tag: `git tag v0.1.0 && git push --tags`
-3. The `publish.yml` workflow triggers automatically via OIDC — no API keys needed.
-
 ## Contributing
 
 PRs welcome! Priority areas:

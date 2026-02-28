@@ -18,7 +18,7 @@ from cubesat_specs.form_factors import (
 )
 from cubesat_specs.launch_providers import LAUNCH_PROVIDERS, get_compatible_providers
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "CubeSatFormFactor",
