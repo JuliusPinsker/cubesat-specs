@@ -10,8 +10,8 @@ class CubeSatFormFactor:
     """Standard CubeSat or PocketQube form factor specification.
 
     Dimensions follow the respective design standards:
-    - CubeSat:    Cal Poly CubeSat Design Specification (CDS) Rev 14
-    - PocketQube: PocketQube Standard Issue 1.7
+    - CubeSat:    Cal Poly CubeSat Design Specification (CDS) Rev 14.1
+    - PocketQube: PocketQube Standard Issue 1
     """
 
     name: str

@@ -15,12 +15,12 @@ def test_1u_dimensions():
     assert ff.width_mm == 100.0
     assert ff.depth_mm == 100.0
     assert ff.height_mm == 113.5
-    assert ff.max_mass_kg == 1.33
+    assert ff.max_mass_kg == 2.0
     assert ff.min_freq_hz == 100.0
 
 
 def test_3u_mass_limit():
-    assert CUBESAT_FORM_FACTORS["3U"].max_mass_kg == 4.0
+    assert CUBESAT_FORM_FACTORS["3U"].max_mass_kg == 6.0
 
 
 def test_6u_cross_section():

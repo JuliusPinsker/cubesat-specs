@@ -4,7 +4,7 @@ from cubesat_specs import LAUNCH_PROVIDERS, get_compatible_providers
 
 
 def test_provider_keys_present():
-    for key in ["nanoracks", "calply", "isis", "exolaunch", "spaceflight", "rocketlab", "alba"]:
+    for key in ["nanoracks", "calpoly", "isis", "exolaunch", "spaceflight", "rocketlab", "alba"]:
         assert key in LAUNCH_PROVIDERS, f"Missing provider: {key}"
 
 
@@ -32,7 +32,7 @@ def test_nrcsd_supports_1u_to_6u():
 
 
 def test_ppod_max_3u():
-    ppod = LAUNCH_PROVIDERS["calply"].deployers[0]
+    ppod = LAUNCH_PROVIDERS["calpoly"].deployers[0]
     assert ppod.max_units == 3.0
 
 

@@ -24,7 +24,7 @@ from cubesat_specs import (
 # Look up a 3U CubeSat
 ff = CUBESAT_FORM_FACTORS["3U"]
 print(ff.width_mm, ff.depth_mm, ff.height_mm)  # 100.0 100.0 340.5
-print(ff.max_mass_kg)                            # 4.0
+print(ff.max_mass_kg)                            # 6.0
 print(ff.volume_liters)                          # 3.405
 
 # PocketQube 1p
@@ -42,36 +42,36 @@ for provider in get_compatible_providers("6U"):
     print(f"{provider.name}: {deployer_names}")
 ```
 
-## CubeSat Form Factors (Cal Poly CDS Rev 14)
+## CubeSat Form Factors (Cal Poly CDS Rev 14.1)
 
 | Key   | W × D × H (mm)          | Max mass (kg) | Min freq (Hz) |
 |-------|--------------------------|---------------|---------------|
-| 0.5U  | 100 × 100 × 56.75        | 0.67          | 100           |
-| 1U    | 100 × 100 × 113.5        | 1.33          | 100           |
-| 1.5U  | 100 × 100 × 170.25       | 2.00          | 100           |
-| 2U    | 100 × 100 × 227.0        | 2.66          | 100           |
-| 3U    | 100 × 100 × 340.5        | 4.00          | 100           |
-| 3U+   | 100 × 100 × 360.0        | 4.00          | 100           |
+| 0.5U  | 100 × 100 × 56.75        | 1.00          | 100           |
+| 1U    | 100 × 100 × 113.5        | 2.00          | 100           |
+| 1.5U  | 100 × 100 × 170.25       | 3.00          | 100           |
+| 2U    | 100 × 100 × 227.0        | 4.00          | 100           |
+| 3U    | 100 × 100 × 340.5        | 6.00          | 100           |
+| 3U+   | 100 × 100 × 360.0        | 6.00          | 100           |
 | 6U    | 226.3 × 100 × 366.0      | 12.00         | 100           |
 | 12U   | 226.3 × 226.3 × 366.0    | 24.00         | 100           |
 | 16U   | 226.3 × 226.3 × 488.0    | 32.00         | 100           |
 | 27U   | 300 × 300 × 340.5        | 54.00         | 100           |
 
-## PocketQube Form Factors (Standard Issue 1.7)
+## PocketQube Form Factors (PocketQube Standard Issue 1)
 
 | Key | W × D × H (mm) | Max mass (g) |
-|-----|---------------|______________|
+|-----|-----------------|--------------|
 | 1p  | 50 × 50 × 50  | 250          |
-| 2p  | 50 × 50 × 100 | 500          |
-| 3p  | 50 × 50 × 150 | 750          |
+| 2p  | 50 × 50 × 114 | 500          |
+| 3p  | 50 × 50 × 178 | 750          |
 
 ## Launch Providers & Deployers
 
 | Provider key   | Provider              | Deployers                                      |
 |----------------|-----------------------|------------------------------------------------|
 | `nanoracks`    | NanoRacks             | NRCSD, NRCSD-E, NRCSD DoubleWide              |
-| `calply`       | Cal Poly              | P-POD Mk III                                   |
-| `isis`         | ISIS / EnduroSat      | ISIPOD 3U, ISIPOD 6U                           |
+| `calpoly`      | Cal Poly              | P-POD Mk III                                   |
+| `isis`         | ISIS                  | ISIPOD 3U, ISIPOD 6U                           |
 | `exolaunch`    | Exolaunch GmbH        | EXOpod 6U, EXOpod 12U                          |
 | `spaceflight`  | SpaceFlight Inc.      | Sherpa-FX                                      |
 | `rocketlab`    | Rocket Lab            | Electron Rideshare Deployer                    |
@@ -81,8 +81,8 @@ Each `DeployerSpec` carries: `supported_form_factors`, `deployment_velocity_min/
 
 ## Data Sources
 
-- [CubeSat Design Specification (CDS) Rev 14](https://www.cubesat.org/cubesatinfo), Cal Poly, 2014
-- [PocketQube Standard Issue 1.7](https://static1.squarespace.com/static/53d7dcdce4b07a1cdbbc08a4/t/5b34c395352f5303fcec6f45/1530184648111/PocketQube+Standard+iss1.7.pdf), 2018
+- [CubeSat Design Specification (CDS) Rev 14.1](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf), Cal Poly, 2022
+- [PocketQube Standard Issue 1](https://static1.squarespace.com/static/53d7dcdce4b07a1cdbbc08a4/t/5b34c395352f5303fcec6f45/1530184648111/PocketQube+Standard+issue+1+-+Published.pdf), 2018
 - [NanoRacks NRCSD IDD Rev D](https://nanoracks.com/wp-content/uploads/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf)
 - [NanoRacks NRCSD-E IDD](https://nanoracks.com/wp-content/uploads/Nanoracks-External-Cygnus-Deployer-E-NRCSD-IDD.pdf)
 - [Cal Poly P-POD Mk III User Guide](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/5806854d6b8f5b8eb57b83bd/1476822350599/P-POD_MkIIIRevE_UserGuide.pdf)

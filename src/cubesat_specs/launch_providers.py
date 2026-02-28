@@ -2,10 +2,13 @@
 
 Sources
 -------
-- NanoRacks NRCSD IDD Rev D
-  https://nanoracks.com/wp-content/uploads/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf
+- CubeSat Design Specification (CDS) Rev 14.1, Cal Poly, 2022
+  https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/
+  t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf
 - NanoRacks NRCSD-E IDD
   https://nanoracks.com/wp-content/uploads/Nanoracks-External-Cygnus-Deployer-E-NRCSD-IDD.pdf
+- NanoRacks NRCSD IDD Rev D
+  https://nanoracks.com/wp-content/uploads/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf
 - Cal Poly P-POD Mk III Rev E User Guide
   https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/
   t/5806854d6b8f5b8eb57b83bd/1476822350599/P-POD_MkIIIRevE_UserGuide.pdf
@@ -29,13 +32,14 @@ PPOD_MK3 = DeployerSpec(
     max_units=3.0,
     supported_form_factors=["1U", "2U", "3U"],
     deployment_velocity_min_ms=1.5,
-    deployment_velocity_max_ms=1.5,
+    deployment_velocity_max_ms=2.0,
     tip_off_rate_max_deg_s=5.0,
-    max_payload_mass_kg=4.0,
+    max_payload_mass_kg=6.0,
     mechanism="spring",
     notes=(
         "Original CubeSat standard deployer. Internal volume 340 × 100 × 100 mm. "
-        "Accepts 1U+1U+1U, 2U+1U, or 3U configurations."
+        "Accepts 1U+1U+1U, 2U+1U, or 3U configurations. "
+        "Exit velocity ~2.0 m/s for 4 kg payload (P-POD Mk III Rev E User Guide)."
     ),
 )
 
@@ -54,7 +58,7 @@ NRCSD = DeployerSpec(
     altitude_km_max=420.0,
     notes=(
         "ISS-based deployment via JEM airlock. Up to 6U per silo (1U–6U). "
-        "Battery: ≤160 Wh total, ≤80 Wh per cell. "
+        "Battery: ≤100 Wh total stored chemical energy (FAA requirement). "
         "Deployment velocity 0.5–2.0 m/s; tip-off target < 2 deg/s/axis."
     ),
 )
@@ -65,16 +69,17 @@ NRCSD_E = DeployerSpec(
     max_units=6.0,
     supported_form_factors=["1U", "2U", "3U", "4U", "5U", "6U"],
     deployment_velocity_min_ms=0.5,
-    deployment_velocity_max_ms=2.5,
+    deployment_velocity_max_ms=2.0,
     tip_off_rate_max_deg_s=5.0,
     max_payload_mass_kg=14.0,
     mechanism="spring",
     inclination_deg=51.6,
     altitude_km_min=400.0,
-    altitude_km_max=420.0,
+    altitude_km_max=450.0,
     notes=(
         "External ISS deployment via Cygnus robotic arm. "
         "Six silos × 6U = 36U total capacity per NRCSD-E unit. "
+        "Deployment occurs after Cygnus departs ISS, nominally ~450 km altitude. "
         "Min three deployment switches required on payload."
     ),
 )
@@ -103,7 +108,7 @@ ISIPOD_3U = DeployerSpec(
     deployment_velocity_min_ms=1.5,
     deployment_velocity_max_ms=2.5,
     tip_off_rate_max_deg_s=3.0,
-    max_payload_mass_kg=4.0,
+    max_payload_mass_kg=6.0,
     mechanism="spring",
     notes="Standard ISIS deployer. Internal 340.5 × 100 × 100 mm. PC/104 compatible.",
 )
@@ -126,14 +131,15 @@ EXOPOD_6U = DeployerSpec(
     provider="Exolaunch GmbH",
     max_units=6.0,
     supported_form_factors=["6U"],
-    deployment_velocity_min_ms=1.5,
-    deployment_velocity_max_ms=2.5,
-    tip_off_rate_max_deg_s=2.0,
+    deployment_velocity_min_ms=1.2,
+    deployment_velocity_max_ms=2.4,
+    tip_off_rate_max_deg_s=10.0,
     max_payload_mass_kg=12.0,
     mechanism="spring",
     notes=(
         "Primary deployer on SpaceX Transporter rideshare missions. "
-        "Passive tip-off damping; customizable ejection velocity available."
+        "Passive tip-off damping; max <10 deg/s all axes (EXOpod User Manual). "
+        "Customizable ejection velocity available."
     ),
 )
 
@@ -142,12 +148,12 @@ EXOPOD_12U = DeployerSpec(
     provider="Exolaunch GmbH",
     max_units=12.0,
     supported_form_factors=["12U"],
-    deployment_velocity_min_ms=1.5,
-    deployment_velocity_max_ms=2.5,
-    tip_off_rate_max_deg_s=2.0,
+    deployment_velocity_min_ms=1.2,
+    deployment_velocity_max_ms=2.4,
+    tip_off_rate_max_deg_s=10.0,
     max_payload_mass_kg=24.0,
     mechanism="spring",
-    notes="Used on SpaceX Transporter rideshare missions.",
+    notes="Used on SpaceX Transporter rideshare missions. Max tip-off <10 deg/s all axes.",
 )
 
 SHERPA_FX = DeployerSpec(
@@ -209,7 +215,7 @@ LAUNCH_PROVIDERS: Dict[str, LaunchProvider] = {
             "No hazardous materials. Battery energy limits apply."
         ),
     ),
-    "calply": LaunchProvider(
+    "calpoly": LaunchProvider(
         name="Cal Poly",
         website="https://www.cubesat.org",
         deployers=[PPOD_MK3],
@@ -219,7 +225,7 @@ LAUNCH_PROVIDERS: Dict[str, LaunchProvider] = {
         name="Innovative Solutions In Space (ISIS)",
         website="https://www.isispace.nl",
         deployers=[ISIPOD_3U, ISIPOD_6U],
-        notes="Dutch small satellite manufacturer and launch broker.",
+        notes="Dutch small satellite manufacturer and launch broker. Flight heritage since 2013.",
     ),
     "exolaunch": LaunchProvider(
         name="Exolaunch GmbH",
