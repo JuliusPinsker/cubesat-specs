@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cubesat-specs"
+version = "0.1.0"
+description = "Standardized CubeSat & PocketQube form factor specs with launch provider deployer constraints"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Julius Pinsker", email = "julius@pinsker.ai" }
+]
+keywords = ["cubesat", "nanosatellite", "pocketqube", "smallsat", "space"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.urls]
+Homepage = "https://github.com/JuliusPinsker/cubesat-specs"
+Repository = "https://github.com/JuliusPinsker/cubesat-specs"
+Issues = "https://github.com/JuliusPinsker/cubesat-specs/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cubesat_specs"]
