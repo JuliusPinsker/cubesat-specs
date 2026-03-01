@@ -14,10 +14,13 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
     "sphinx.ext.autosummary",
+    "myst_parser",
 ]
 
 autodoc_member_order = "bysource"
 autodoc_typehints = "description"
+
+suppress_warnings = ["myst.xref_missing", "ref.python"]
 
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True

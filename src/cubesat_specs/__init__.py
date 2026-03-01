@@ -8,7 +8,7 @@ Data models
 Form-factor registries
   CUBESAT_FORM_FACTORS        dict[str, FormFactor]   (0.5U … 27U)
   POCKETQUBE_FORM_FACTORS     dict[str, FormFactor]   (1p … 3p)
-  ALL_FORM_FACTORS            combined dict (cubesat + pq_ prefixed PocketQube)
+  ALL_FORM_FACTORS            combined dict (cubesat + ``pq_``-prefixed PocketQube)
 
 Launch providers
   LAUNCH_PROVIDERS            dict[str, LaunchProvider]
