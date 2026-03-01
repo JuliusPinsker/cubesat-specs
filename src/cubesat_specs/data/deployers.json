@@ -1,0 +1,314 @@
+{
+  "$schema": "cubesat-specs/deployers",
+  "version": "0.2.0",
+  "deployers": {
+    "NanoRacks_CubeSat_Deployer_NRCSD": {
+      "name": "NanoRacks CubeSat Deployer (NRCSD)",
+      "provider": "NanoRacks / Voyager Space",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U",
+        "4U",
+        "5U",
+        "6U"
+      ],
+      "max_payload_mass_kg": 14.0,
+      "deployment_velocity_min_ms": 0.5,
+      "deployment_velocity_max_ms": 2.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": 51.6,
+      "altitude_km_min": 400.0,
+      "altitude_km_max": 420.0,
+      "notes": "ISS-based deployment via JEM airlock. Up to 6U per silo (1U\u20136U). Battery: \u2264100 Wh total stored chemical energy (FAA requirement). Deployment velocity 0.5\u20132.0 m/s; tip-off target < 2 deg/s/axis."
+    },
+    "NanoRacks_External_Cygnus_Deployer_NRCSD-E": {
+      "name": "NanoRacks External Cygnus Deployer (NRCSD-E)",
+      "provider": "NanoRacks / Voyager Space",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U",
+        "4U",
+        "5U",
+        "6U"
+      ],
+      "max_payload_mass_kg": 14.0,
+      "deployment_velocity_min_ms": 0.5,
+      "deployment_velocity_max_ms": 2.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": 51.6,
+      "altitude_km_min": 400.0,
+      "altitude_km_max": 450.0,
+      "notes": "External ISS deployment via Cygnus robotic arm. Six silos \u00d7 6U = 36U total capacity per NRCSD-E unit. Deployment occurs after Cygnus departs ISS, nominally ~450 km altitude. Min three deployment switches required on payload."
+    },
+    "NanoRacks_NRCSD_DoubleWide": {
+      "name": "NanoRacks NRCSD DoubleWide",
+      "provider": "NanoRacks / Voyager Space",
+      "max_units": 12.0,
+      "supported_form_factors": [
+        "6U",
+        "12U"
+      ],
+      "max_payload_mass_kg": 28.0,
+      "deployment_velocity_min_ms": 0.5,
+      "deployment_velocity_max_ms": 2.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": 51.6,
+      "altitude_km_min": 400.0,
+      "altitude_km_max": 420.0,
+      "notes": "Accommodates 2 \u00d7 6U (12U equivalent). ISS-based. Up to 48U per mission cycle."
+    },
+    "P-POD_Mk_III": {
+      "name": "P-POD Mk III",
+      "provider": "Cal Poly",
+      "max_units": 3.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U"
+      ],
+      "max_payload_mass_kg": 6.0,
+      "deployment_velocity_min_ms": 1.5,
+      "deployment_velocity_max_ms": 2.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Original CubeSat standard deployer. Internal volume 340 \u00d7 100 \u00d7 100 mm. Accepts 1U+1U+1U, 2U+1U, or 3U configurations. Exit velocity ~2.0 m/s for 4 kg payload (P-POD Mk III Rev E User Guide)."
+    },
+    "ISIS_ISIPOD_3U": {
+      "name": "ISIS ISIPOD 3U",
+      "provider": "Innovative Solutions In Space (ISIS)",
+      "max_units": 3.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U"
+      ],
+      "max_payload_mass_kg": 6.0,
+      "deployment_velocity_min_ms": 1.5,
+      "deployment_velocity_max_ms": 2.5,
+      "tip_off_rate_max_deg_s": 3.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Standard ISIS deployer. Internal 340.5 \u00d7 100 \u00d7 100 mm. PC/104 compatible."
+    },
+    "ISIS_ISIPOD_6U": {
+      "name": "ISIS ISIPOD 6U",
+      "provider": "Innovative Solutions In Space (ISIS)",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "6U"
+      ],
+      "max_payload_mass_kg": 12.0,
+      "deployment_velocity_min_ms": 1.5,
+      "deployment_velocity_max_ms": 2.5,
+      "tip_off_rate_max_deg_s": 3.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Internal 226.3 \u00d7 100 \u00d7 366 mm. Widely used on PSLV and Falcon rideshare."
+    },
+    "Exolaunch_EXOpod_6U": {
+      "name": "Exolaunch EXOpod 6U",
+      "provider": "Exolaunch GmbH",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "6U"
+      ],
+      "max_payload_mass_kg": 12.0,
+      "deployment_velocity_min_ms": 1.2,
+      "deployment_velocity_max_ms": 2.4,
+      "tip_off_rate_max_deg_s": 10.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Primary deployer on SpaceX Transporter rideshare missions. Passive tip-off damping; max <10 deg/s all axes (EXOpod User Manual). Customizable ejection velocity available."
+    },
+    "Exolaunch_EXOpod_12U": {
+      "name": "Exolaunch EXOpod 12U",
+      "provider": "Exolaunch GmbH",
+      "max_units": 12.0,
+      "supported_form_factors": [
+        "12U"
+      ],
+      "max_payload_mass_kg": 24.0,
+      "deployment_velocity_min_ms": 1.2,
+      "deployment_velocity_max_ms": 2.4,
+      "tip_off_rate_max_deg_s": 10.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Used on SpaceX Transporter rideshare missions. Max tip-off <10 deg/s all axes."
+    },
+    "SpaceFlight_Sherpa-FX_OTV_Deployer": {
+      "name": "SpaceFlight Sherpa-FX OTV Deployer",
+      "provider": "SpaceFlight Inc.",
+      "max_units": 12.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U",
+        "6U",
+        "12U"
+      ],
+      "max_payload_mass_kg": 300.0,
+      "deployment_velocity_min_ms": 1.0,
+      "deployment_velocity_max_ms": 3.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Orbital transfer vehicle; orbit depends on rideshare primary mission. Supports multiple deployer rail configurations."
+    },
+    "Rocket_Lab_Electron_Rideshare_Deployer": {
+      "name": "Rocket Lab Electron Rideshare Deployer",
+      "provider": "Rocket Lab",
+      "max_units": 12.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U",
+        "6U",
+        "12U"
+      ],
+      "max_payload_mass_kg": 30.0,
+      "deployment_velocity_min_ms": 1.0,
+      "deployment_velocity_max_ms": 2.5,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Electron launch vehicle. Primarily SSO (97\u201398\u00b0) at 400\u20131200 km. Kick Stage enables precise orbit insertion."
+    },
+    "PocketQube_Deployer_4p": {
+      "name": "PocketQube Deployer (4p)",
+      "provider": "Alba Orbital / Various",
+      "max_units": 4.0,
+      "supported_form_factors": [
+        "1p",
+        "2p",
+        "3p"
+      ],
+      "max_payload_mass_kg": 1.0,
+      "deployment_velocity_min_ms": 0.5,
+      "deployment_velocity_max_ms": 2.0,
+      "tip_off_rate_max_deg_s": 5.0,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Standard PocketQube deployer, 4p capacity per tube. Used on PSLV rideshare."
+    },
+    "JAXA_J-SSOD_10_cm_class": {
+      "name": "JAXA J-SSOD (10 cm class)",
+      "provider": "JAXA",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U"
+      ],
+      "max_payload_mass_kg": 4.0,
+      "deployment_velocity_min_ms": 1.1,
+      "deployment_velocity_max_ms": 1.7,
+      "tip_off_rate_max_deg_s": null,
+      "mechanism": "spring",
+      "inclination_deg": 51.6,
+      "altitude_km_min": 380.0,
+      "altitude_km_max": 420.0,
+      "notes": "ISS JEM Kibo airlock deployment. Two 3U deployers (JEM-SDP), deploying 45\u00b0 nadir-aft. Min fundamental freq \u2265100 Hz. \u22653 independent inhibits required. \u22652 deployment switches on \u2212Z face. 30-min post-ejection delay for deployable activation and RF. Ballistic number \u2264100 kg/m\u00b2. Thermal: \u221215 to +60 \u00b0C outside ISS. Source: JAXA JEM Handbook Vol. 8 (JX-ESPC-101133)."
+    },
+    "D-Orbit_ION_Satellite_Carrier": {
+      "name": "D-Orbit ION Satellite Carrier",
+      "provider": "D-Orbit",
+      "max_units": 48.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U",
+        "6U",
+        "12U",
+        "16U"
+      ],
+      "max_payload_mass_kg": 160.0,
+      "deployment_velocity_min_ms": null,
+      "deployment_velocity_max_ms": null,
+      "tip_off_rate_max_deg_s": null,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Orbital transfer vehicle with internal CubeSat dispensers. ~48U total capacity; multiple slots, each up to 16U. Custom orbit insertion 400\u2013750 km (standard), up to 2 000 km with on-board propulsion. Precise deployment timing and orbit manoeuvres between releases. Per-slot mass and environment constraints are mission-specific (ICD required). Ejection velocity and tip-off rates are proprietary/mission-specific."
+    },
+    "Maverick_Mercury-3": {
+      "name": "Maverick Mercury-3",
+      "provider": "Maverick Space Systems",
+      "max_units": 3.0,
+      "supported_form_factors": [
+        "1U",
+        "2U",
+        "3U"
+      ],
+      "max_payload_mass_kg": 6.0,
+      "deployment_velocity_min_ms": null,
+      "deployment_velocity_max_ms": null,
+      "tip_off_rate_max_deg_s": null,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "Lightweight 3U rail-type CubeSat dispenser. Qualified to NASA GEVS random-vibration levels. Flight heritage on Firefly Alpha and multiple other vehicles."
+    },
+    "Maverick_Mercury-6": {
+      "name": "Maverick Mercury-6",
+      "provider": "Maverick Space Systems",
+      "max_units": 6.0,
+      "supported_form_factors": [
+        "3U",
+        "6U"
+      ],
+      "max_payload_mass_kg": 12.0,
+      "deployment_velocity_min_ms": null,
+      "deployment_velocity_max_ms": null,
+      "tip_off_rate_max_deg_s": null,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "6U rail-type CubeSat dispenser. Qualified to NASA GEVS random-vibration levels."
+    },
+    "Maverick_Mercury-12": {
+      "name": "Maverick Mercury-12",
+      "provider": "Maverick Space Systems",
+      "max_units": 12.0,
+      "supported_form_factors": [
+        "6U",
+        "12U"
+      ],
+      "max_payload_mass_kg": 24.0,
+      "deployment_velocity_min_ms": null,
+      "deployment_velocity_max_ms": null,
+      "tip_off_rate_max_deg_s": null,
+      "mechanism": "spring",
+      "inclination_deg": null,
+      "altitude_km_min": null,
+      "altitude_km_max": null,
+      "notes": "12U rail-type CubeSat dispenser. Pre-qualified at NASA GEVS levels. Pre-assembled."
+    }
+  }
+}

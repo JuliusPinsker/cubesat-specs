@@ -1,0 +1,59 @@
+# conda-forge recipe for cubesat-specs
+# Submit this to https://github.com/conda-forge/staged-recipes
+# by placing it in recipes/cubesat-specs/recipe.yaml
+
+context:
+  version: "0.2.1"
+
+package:
+  name: cubesat-specs
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/c/cubesat-specs/cubesat_specs-${{ version }}.tar.gz
+  sha256: UPDATE_AFTER_PYPI_PUBLISH
+
+build:
+  noarch: python
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.9
+    - pip
+    - hatchling
+  run:
+    - python >=3.9
+
+tests:
+  - python:
+      imports:
+        - cubesat_specs
+        - cubesat_specs.form_factors
+        - cubesat_specs.launch_providers
+        - cubesat_specs.standards
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - tests/
+    script:
+      - pytest tests/ -v
+
+about:
+  home: https://github.com/JuliusPinsker/cubesat-specs
+  summary: Standardized CubeSat & PocketQube form factor specs with launch provider deployer constraints
+  description: |
+    Machine-readable CubeSat (CDS Rev 14.1) and PocketQube (PQS Issue 1)
+    form factor data, design constraints, and launch provider deployer
+    specifications.  Ships Python dataclasses and JSON data files.
+  license: MIT
+  license_file: LICENSE
+  doc_url: https://cubesat-specs.readthedocs.io
+  dev_url: https://github.com/JuliusPinsker/cubesat-specs
+
+extra:
+  recipe-maintainers:
+    - JuliusPinsker

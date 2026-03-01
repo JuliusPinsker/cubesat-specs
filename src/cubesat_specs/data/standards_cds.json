@@ -1,0 +1,43 @@
+{
+  "$schema": "cubesat-specs/standards_cds",
+  "version": "0.2.0",
+  "source": "CubeSat Design Specification (CDS) Rev 14.1, Cal Poly, 2022",
+  "constraints": {
+    "rail_min_width_mm": 8.5,
+    "rail_surface_roughness_max_um": 1.6,
+    "rail_edge_radius_min_mm": 1.0,
+    "rail_end_contact_area_min_mm": [
+      6.5,
+      6.5
+    ],
+    "rail_contact_pct_min": 75.0,
+    "max_protrusion_mm": 6.5,
+    "rbf_max_protrusion_mm": 6.5,
+    "separation_spring_max_force_n": 6.7,
+    "separation_spring_min_stroke_mm": 2.5,
+    "outgassing_tml_max_pct": 1.0,
+    "outgassing_cvcm_max_pct": 0.1,
+    "magnetic_field_max_gauss": 0.5,
+    "min_deployment_switches": 1,
+    "rf_inhibit_count": 3,
+    "deployable_inhibit_count": 3,
+    "propulsion_inhibit_count": 3,
+    "rtc_max_freq_khz": 320.0,
+    "rtc_max_current_ma": 10.0,
+    "deployable_wait_minutes": 30,
+    "rf_silence_minutes": 45,
+    "battery_faa_guideline_wh": 100.0,
+    "reentry_energy_max_j": 15.0
+  },
+  "recommended_al_alloys": [
+    "7075",
+    "6061",
+    "6082",
+    "5005",
+    "5052"
+  ],
+  "notes": {
+    "vibration": "CDS Rev 14.1 \u00a73.1.1: random vibration levels are defined by the Launch Provider.  No default levels are specified in the CDS.  GSFC-STD-7000A (GEVS) and SMC-S-016 may be used as guides.",
+    "shock": "CDS Rev 14.1 \u00a73.3.1.1: shock testing is typically not required for CubeSats."
+  }
+}

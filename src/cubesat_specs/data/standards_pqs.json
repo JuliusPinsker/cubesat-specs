@@ -1,0 +1,43 @@
+{
+  "$schema": "cubesat-specs/standards_pqs",
+  "version": "0.2.0",
+  "source": "PocketQube Standard Issue 1, TU Delft / Alba Orbital / GAUSS Srl, 2018",
+  "constraints": {
+    "pyrotechnics_allowed": false,
+    "outgassing_tml_max_pct": 1.0,
+    "outgassing_cvcm_max_pct": 0.1,
+    "component_envelope_mm": 7.0,
+    "deployable_envelope_mm": 10.0,
+    "rail_clamp_width_mm": 2.0,
+    "min_contact_surface_mm": 21.5,
+    "min_kill_switches": 2,
+    "backplate_thickness_mm": 1.6,
+    "mass_per_unit_kg": 0.25,
+    "cg_max_offset_cm": 1.0,
+    "hard_anodize_required": true
+  },
+  "backplate_dimensions": {
+    "1p": {
+      "x_mm": 58.0,
+      "z_mm": 64.0,
+      "thickness_mm": 1.6
+    },
+    "2p": {
+      "x_mm": 58.0,
+      "z_mm": 128.0,
+      "thickness_mm": 1.6
+    },
+    "3p": {
+      "x_mm": 58.0,
+      "z_mm": 192.0,
+      "thickness_mm": 1.6
+    }
+  },
+  "recommended_baseplate_materials": [
+    "FR4",
+    "Al-7075",
+    "Al-6061",
+    "Al-6065",
+    "Al-6082"
+  ]
+}

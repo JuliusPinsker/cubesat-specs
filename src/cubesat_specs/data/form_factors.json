@@ -1,0 +1,177 @@
+{
+  "$schema": "cubesat-specs/form_factors",
+  "version": "0.2.0",
+  "cubesat": {
+    "0.5U": {
+      "name": "0.5U CubeSat",
+      "units": 0.5,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 56.75,
+      "max_mass_kg": 1.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 2.0
+      }
+    },
+    "1U": {
+      "name": "1U CubeSat",
+      "units": 1.0,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 113.5,
+      "max_mass_kg": 2.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 2.0
+      }
+    },
+    "1.5U": {
+      "name": "1.5U CubeSat",
+      "units": 1.5,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 170.25,
+      "max_mass_kg": 3.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 3.0
+      }
+    },
+    "2U": {
+      "name": "2U CubeSat",
+      "units": 2.0,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 227.0,
+      "max_mass_kg": 4.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 4.5
+      }
+    },
+    "3U": {
+      "name": "3U CubeSat",
+      "units": 3.0,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 340.5,
+      "max_mass_kg": 6.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 7.0
+      }
+    },
+    "3U+": {
+      "name": "3U+ CubeSat",
+      "units": 3.0,
+      "width_mm": 100.0,
+      "depth_mm": 100.0,
+      "height_mm": 360.0,
+      "max_mass_kg": 6.0,
+      "cg_limits": {
+        "x_pm_cm": 2.0,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 7.0
+      }
+    },
+    "6U": {
+      "name": "6U CubeSat",
+      "units": 6.0,
+      "width_mm": 226.3,
+      "depth_mm": 100.0,
+      "height_mm": 366.0,
+      "max_mass_kg": 12.0,
+      "cg_limits": {
+        "x_pm_cm": 4.5,
+        "y_pm_cm": 2.0,
+        "z_pm_cm": 7.0
+      }
+    },
+    "12U": {
+      "name": "12U CubeSat",
+      "units": 12.0,
+      "width_mm": 226.3,
+      "depth_mm": 226.3,
+      "height_mm": 366.0,
+      "max_mass_kg": 24.0,
+      "cg_limits": {
+        "x_pm_cm": 4.5,
+        "y_pm_cm": 4.5,
+        "z_pm_cm": 7.0
+      }
+    },
+    "16U": {
+      "name": "16U CubeSat",
+      "units": 16.0,
+      "width_mm": 226.3,
+      "depth_mm": 226.3,
+      "height_mm": 488.0,
+      "max_mass_kg": 32.0,
+      "cg_limits": {
+        "x_pm_cm": null,
+        "y_pm_cm": null,
+        "z_pm_cm": null
+      }
+    },
+    "27U": {
+      "name": "27U CubeSat",
+      "units": 27.0,
+      "width_mm": 300.0,
+      "depth_mm": 300.0,
+      "height_mm": 340.5,
+      "max_mass_kg": 54.0,
+      "cg_limits": {
+        "x_pm_cm": null,
+        "y_pm_cm": null,
+        "z_pm_cm": null
+      }
+    }
+  },
+  "pocketqube": {
+    "1p": {
+      "name": "1p PocketQube",
+      "units": 1.0,
+      "width_mm": 50.0,
+      "depth_mm": 50.0,
+      "height_mm": 50.0,
+      "max_mass_kg": 0.25,
+      "cg_limits": {
+        "x_pm_cm": 1.0,
+        "y_pm_cm": 1.0,
+        "z_pm_cm": 1.0
+      }
+    },
+    "2p": {
+      "name": "2p PocketQube",
+      "units": 2.0,
+      "width_mm": 50.0,
+      "depth_mm": 50.0,
+      "height_mm": 114.0,
+      "max_mass_kg": 0.5,
+      "cg_limits": {
+        "x_pm_cm": 1.0,
+        "y_pm_cm": 1.0,
+        "z_pm_cm": 1.0
+      }
+    },
+    "3p": {
+      "name": "3p PocketQube",
+      "units": 3.0,
+      "width_mm": 50.0,
+      "depth_mm": 50.0,
+      "height_mm": 178.0,
+      "max_mass_kg": 0.75,
+      "cg_limits": {
+        "x_pm_cm": 1.0,
+        "y_pm_cm": 1.0,
+        "z_pm_cm": 1.0
+      }
+    }
+  }
+}

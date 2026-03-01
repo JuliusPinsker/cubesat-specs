@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "cubesat-specs"
+abstract: >-
+  Standardized CubeSat and PocketQube form factor specifications,
+  design constraints (CDS Rev 14.1, PocketQube Standard Issue 1),
+  and launch provider deployer data as a Python library with
+  machine-readable JSON data files.
+authors:
+  - family-names: Pinsker
+    given-names: Julius
+    email: julius@pinsker.ai
+repository-code: "https://github.com/JuliusPinsker/cubesat-specs"
+url: "https://pypi.org/project/cubesat-specs/"
+license: MIT
+version: "0.2.1"
+date-released: "2026-03-01"
+keywords:
+  - cubesat
+  - pocketqube
+  - nanosatellite
+  - smallsat
+  - satellite
+  - aerospace
+  - form-factor
+  - deployer
+  - space-engineering
+  - reference-data

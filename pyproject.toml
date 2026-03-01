@@ -4,36 +4,58 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cubesat-specs"
-version = "0.2.0"
+version = "0.2.1"
 description = "Standardized CubeSat & PocketQube form factor specs with launch provider deployer constraints"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
     { name = "Julius Pinsker", email = "julius@pinsker.ai" }
 ]
-keywords = ["cubesat", "nanosatellite", "pocketqube", "smallsat", "space"]
+keywords = [
+    "cubesat", "nanosatellite", "pocketqube", "smallsat", "space",
+    "aerospace", "satellite", "deployer", "form-factor", "reference-data",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
     "Topic :: Scientific/Engineering :: Astronomy",
     "Topic :: Scientific/Engineering :: Physics",
+    "Typing :: Typed",
 ]
 requires-python = ">=3.9"
 dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-cov"]
+docs = ["sphinx>=7.0", "furo", "myst-parser", "sphinx-copybutton"]
 
 [project.urls]
 Homepage = "https://github.com/JuliusPinsker/cubesat-specs"
+Documentation = "https://cubesat-specs.readthedocs.io"
 Repository = "https://github.com/JuliusPinsker/cubesat-specs"
 Issues = "https://github.com/JuliusPinsker/cubesat-specs/issues"
+Changelog = "https://github.com/JuliusPinsker/cubesat-specs/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cubesat_specs"]
+artifacts = ["src/cubesat_specs/data/*.json"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/cubesat_specs/**",
+    "tests/**",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "CITATION.cff",
+]
+

@@ -3,6 +3,24 @@
 All notable changes to `cubesat-specs` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.2.1] — 2026-03-01
+
+### Added
+- **Machine-readable JSON data files** in `src/cubesat_specs/data/`:
+  `form_factors.json`, `deployers.json`, `launch_providers.json`,
+  `standards_cds.json`, `standards_pqs.json` — usable from any language
+- `scripts/export_json.py` to regenerate JSON from Python data
+- `CITATION.cff` for academic citation (GitHub "Cite this repository" button)
+- **Sphinx documentation** scaffolding with ReadTheDocs configuration
+- **conda-forge recipe** (`conda-forge/recipe.yaml`) ready for submission
+- `.readthedocs.yaml` configuration
+- `[project.optional-dependencies] docs` in pyproject.toml
+- New PyPI classifiers: `Typing :: Typed`, `Operating System :: OS Independent`,
+  `Intended Audience :: Education`, `Topic :: Scientific/Engineering`
+- Expanded keywords for better PyPI discoverability
+- README: conda-forge badge, ReadTheDocs badge, JSON data section, citation section
+- Project URL for Documentation and Changelog
+
 ## [0.2.0] — 2026-02-28
 
 ### Breaking Changes

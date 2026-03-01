@@ -1,0 +1,92 @@
+{
+  "$schema": "cubesat-specs/launch_providers",
+  "version": "0.2.0",
+  "providers": {
+    "nanoracks": {
+      "name": "NanoRacks (Voyager Space)",
+      "website": "https://nanoracks.com",
+      "notes": "ISS-based deployment. Orbit: 51.6\u00b0 inclination, 400\u2013420 km. No hazardous materials. Battery energy limits apply.",
+      "deployers": [
+        "NanoRacks CubeSat Deployer (NRCSD)",
+        "NanoRacks External Cygnus Deployer (NRCSD-E)",
+        "NanoRacks NRCSD DoubleWide"
+      ]
+    },
+    "calpoly": {
+      "name": "Cal Poly",
+      "website": "https://www.cubesat.org",
+      "notes": "Originator of the CubeSat standard and P-POD deployer.",
+      "deployers": [
+        "P-POD Mk III"
+      ]
+    },
+    "isis": {
+      "name": "Innovative Solutions In Space (ISIS)",
+      "website": "https://www.isispace.nl",
+      "notes": "Dutch small satellite manufacturer and launch broker. Flight heritage since 2013.",
+      "deployers": [
+        "ISIS ISIPOD 3U",
+        "ISIS ISIPOD 6U"
+      ]
+    },
+    "exolaunch": {
+      "name": "Exolaunch GmbH",
+      "website": "https://exolaunch.com",
+      "notes": "German rideshare & integration company; SpaceX Transporter partner.",
+      "deployers": [
+        "Exolaunch EXOpod 6U",
+        "Exolaunch EXOpod 12U"
+      ]
+    },
+    "spaceflight": {
+      "name": "SpaceFlight Inc.",
+      "website": "https://spaceflight.com",
+      "notes": "US rideshare aggregator with dedicated orbital transfer vehicles.",
+      "deployers": [
+        "SpaceFlight Sherpa-FX OTV Deployer"
+      ]
+    },
+    "rocketlab": {
+      "name": "Rocket Lab",
+      "website": "https://www.rocketlabusa.com",
+      "notes": "Electron launch vehicle; primarily SSO missions.",
+      "deployers": [
+        "Rocket Lab Electron Rideshare Deployer"
+      ]
+    },
+    "alba": {
+      "name": "Alba Orbital",
+      "website": "https://www.albaorbital.com",
+      "notes": "Scottish PocketQube specialist; Pale Blue Dot rideshare missions.",
+      "deployers": [
+        "PocketQube Deployer (4p)"
+      ]
+    },
+    "jaxa": {
+      "name": "Japan Aerospace Exploration Agency (JAXA)",
+      "website": "https://aerospacebiz.jaxa.jp/solution/satellite/",
+      "notes": "ISS-based JEM Small Satellite Orbital Deployer (J-SSOD). Orbit: 51.6\u00b0 incl, 380\u2013420 km. Deployment from Kibo airlock.",
+      "deployers": [
+        "JAXA J-SSOD (10 cm class)"
+      ]
+    },
+    "dorbit": {
+      "name": "D-Orbit",
+      "website": "https://www.dorbit.space",
+      "notes": "Italian OTV operator. ION Satellite Carrier provides precise deployment across multiple orbits within a single mission. Launches as secondary payload on Falcon 9, Vega-C, etc.",
+      "deployers": [
+        "D-Orbit ION Satellite Carrier"
+      ]
+    },
+    "maverick": {
+      "name": "Maverick Space Systems",
+      "website": "https://maverickspace.com",
+      "notes": "US deployer manufacturer (San Luis Obispo, CA). NASA GEVS-qualified Mercury-series dispensers. Compatible with Firefly Alpha, ABL RS1, and other launch vehicles.",
+      "deployers": [
+        "Maverick Mercury-3",
+        "Maverick Mercury-6",
+        "Maverick Mercury-12"
+      ]
+    }
+  }
+}

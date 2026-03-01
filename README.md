@@ -1,15 +1,20 @@
 # cubesat-specs
 
 [![PyPI version](https://badge.fury.io/py/cubesat-specs.svg)](https://pypi.org/project/cubesat-specs/)
+[![conda-forge](https://img.shields.io/conda/vn/conda-forge/cubesat-specs.svg)](https://anaconda.org/conda-forge/cubesat-specs)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests](https://github.com/JuliusPinsker/cubesat-specs/actions/workflows/test.yml/badge.svg)](https://github.com/JuliusPinsker/cubesat-specs/actions/workflows/test.yml)
+[![Docs](https://readthedocs.org/projects/cubesat-specs/badge/?version=latest)](https://cubesat-specs.readthedocs.io)
 
 Standardized **CubeSat** and **PocketQube** form factor specifications, design constraints, and launch provider deployer data — no hardcoding required.
 
 ```bash
-pip install cubesat-specs
+pip install cubesat-specs     # PyPI
+conda install -c conda-forge cubesat-specs  # conda-forge (coming soon)
 ```
+
+**Non-Python?** All data is also available as [machine-readable JSON files](src/cubesat_specs/data/) — use them from MATLAB, Julia, C++, JavaScript, or any language.
 
 ## Quick Start
 
@@ -140,6 +145,36 @@ optional `deployment_velocity_min/max_ms` and `tip_off_rate_max_deg_s`
 - [JAXA JEM Payload Accommodation Handbook Vol. 8](https://aerospacebiz.jaxa.jp/solution/satellite/)
 - [D-Orbit ION Platform](https://www.dorbit.space)
 - [Maverick Space Systems](https://maverickspace.com)
+
+## Machine-Readable Data (JSON)
+
+All data is shipped as JSON files in [`src/cubesat_specs/data/`](src/cubesat_specs/data/) for use from any language:
+
+| File | Contents |
+|------|----------|
+| `form_factors.json` | CubeSat (0.5U–27U) and PocketQube (1p–3p) dimensions, mass, CG limits |
+| `deployers.json` | All deployer specs (velocity, mass, form factors) |
+| `launch_providers.json` | Provider names, websites, deployer references |
+| `standards_cds.json` | CDS Rev 14.1 constraints |
+| `standards_pqs.json` | PocketQube Standard Issue 1 constraints |
+
+Regenerate with `python scripts/export_json.py`.
+
+## Citing
+
+If you use this data in academic work, please cite:
+
+```bibtex
+@software{cubesat_specs,
+  author  = {Pinsker, Julius},
+  title   = {cubesat-specs},
+  url     = {https://github.com/JuliusPinsker/cubesat-specs},
+  version = {0.2.1},
+  year    = {2026},
+}
+```
+
+A `CITATION.cff` is included — GitHub shows a "Cite this repository" button automatically.
 
 ## Contributing
 
