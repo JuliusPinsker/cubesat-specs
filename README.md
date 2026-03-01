@@ -6,6 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests](https://github.com/JuliusPinsker/cubesat-specs/actions/workflows/test.yml/badge.svg)](https://github.com/JuliusPinsker/cubesat-specs/actions/workflows/test.yml)
 [![Docs](https://readthedocs.org/projects/cubesat-specs/badge/?version=latest)](https://cubesat-specs.readthedocs.io)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18827692.svg)](https://doi.org/10.5281/zenodo.18827692)
 
 Standardized **CubeSat** and **PocketQube** form factor specifications, design constraints, and launch provider deployer data — no hardcoding required.
 

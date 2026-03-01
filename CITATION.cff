@@ -16,6 +16,7 @@ url: "https://pypi.org/project/cubesat-specs/"
 license: MIT
 version: "0.2.1"
 date-released: "2026-03-01"
+doi: "10.5281/zenodo.18827693"
 keywords:
   - cubesat
   - pocketqube
